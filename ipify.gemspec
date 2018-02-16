@@ -6,22 +6,13 @@ require "ipify/version"
 Gem::Specification.new do |spec|
   spec.name          = "ipify"
   spec.version       = Ipify::VERSION
-  spec.authors       = ["TODO: Write your name"]
-  spec.email         = ["hoanghieu3690@gmail.com"]
-
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
-  spec.license       = "MIT"
-
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
+  spec.date        = '2018-02-14'
+  spec.summary     = "Public id address getter"
+  spec.description = "gem for retrieving public ip address from Ipify API service"
+  spec.authors     = ["Hieu Dang"]
+  spec.email       = 'hoanghieu3690@gmail.com'
+  spec.homepage    = 'https://github.com/dang-hoang-hieu/ruby-ipify'
+  spec.license     = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
