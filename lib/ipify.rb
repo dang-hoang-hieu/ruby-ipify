@@ -1,19 +1,23 @@
-# require "ipify/version"
+require "ipify/version"
 require 'net/http'
 
 API_URI = 'https://api.ipify.org'
 
 module Ipify
-  def self.ip format = nil
-    res = Net::HTTP.get_response(self.build_request(format))
+  def self.ip format = nil, callback = nil
+    res = Net::HTTP.get_response(build_request(format, callback))
     res.body
   end
 
   private
 
-  def self.build_request format = nil
+  def self.build_request format = nil, callback = nil
     uri = URI(API_URI)
-    uri.query = URI.encode_www_form({ format: format }) if format
+    if format
+      query = { format: format }
+      query[:callback] = callback if callback
+      uri.query = URI.encode_www_form(query)
+    end
     uri
   end
 end
